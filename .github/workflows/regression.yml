@@ -1,0 +1,50 @@
+name: Schema Regression
+
+on:
+  pull_request:
+    paths:
+      - '**.json'
+      - '**.yaml'
+      - '**.yml'
+      - 'src/**'
+      - 'tests/**'
+      - 'package.json'
+  push:
+    branches: [main, master]
+    paths:
+      - '**.json'
+      - '**.yaml'
+      - '**.yml'
+      - 'src/**'
+
+jobs:
+  schema-regression:
+    name: Detect Breaking Schema Changes
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run unit tests
+        run: npm test
+
+      - name: Run schema regression check
+        # Change the schema path below to match your project
+        run: node src/index.js schema.json --snapshots-dir snapshots
+        # If you want the check to fail the PR when breaking changes exist,
+        # the process already exits with code 1 on failure.
+
+      # Optional: allow intentional updates via label or manual workflow
+      # - name: Update snapshot (only on demand)
+      #   if: contains(github.event.pull_request.labels.*.name, 'update-schema-snapshot')
+      #   run: node src/index.js schema.json --update-snapshot
