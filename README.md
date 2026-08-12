@@ -1,5 +1,10 @@
 # Schema Regression Tool
 
+[![CI](https://github.com/shabanihamidu19-cell/schema-regression-tool/actions/workflows/regression.yml/badge.svg)](https://github.com/shabanihamidu19-cell/schema-regression-tool/actions/workflows/regression.yml)
+[![npm version](https://img.shields.io/npm/v/schema-regression-tool.svg)](https://www.npmjs.com/package/schema-regression-tool)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js](https://img.shields.io/badge/node-%3E%3D16-brightgreen.svg)](https://nodejs.org)
+
 **Catch breaking schema changes before they reach production.**
 
 This tool compares your current JSON/YAML schema against a stored snapshot and fails CI when breaking changes are detected. Perfect for API contracts, event schemas, configuration schemas, and any data structure that other services depend on.
@@ -129,16 +134,16 @@ console.log(result.breakingChanges);
 
 ## What is considered a Breaking Change?
 
-| Change                              | Breaking? |
-|-------------------------------------|-----------|
-| Field removed                       | Yes       |
-| Type changed (string → number …)    | Yes       |
-| Required field removed / made optional | Yes    |
-| Enum value removed                  | Yes       |
-| Nested field removed or type-changed| Yes       |
-| New optional field added            | No        |
-| New enum value added                | No        |
-| Description / title changed         | No (ignored) |
+| Change                                 | Breaking?    |
+|----------------------------------------|--------------|
+| Field removed                          | Yes          |
+| Type changed (string → number …)       | Yes          |
+| Required field removed / made optional | Yes          |
+| Enum value removed                     | Yes          |
+| Nested field removed or type-changed   | Yes          |
+| New optional field added               | No           |
+| New enum value added                   | No           |
+| Description / title changed            | No (ignored) |
 
 ## Running the tests
 
@@ -148,9 +153,8 @@ npm test
 
 ## License
 
-MIT
+MIT © [KidCoder Tz](https://github.com/shabanihamidu19-cell)
 
 ---
 
 Built to protect developers from silent schema breakages.
-```
