@@ -16,6 +16,9 @@ on:
       - '**.yaml'
       - '**.yml'
       - 'src/**'
+      - 'tests/**'
+      - 'package.json'
+      - '.github/workflows/**'
 
 jobs:
   schema-regression:
