@@ -30,21 +30,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Run unit tests
         run: npm test
 
       - name: Run schema regression check
-        # Change the schema path below to match your project
         run: node src/index.js schema.json --snapshots-dir snapshots
-        # If you want the check to fail the PR when breaking changes exist,
-        # the process already exits with code 1 on failure.
-
-      # Optional: allow intentional updates via label or manual workflow
-      # - name: Update snapshot (only on demand)
-      #   if: contains(github.event.pull_request.labels.*.name, 'update-schema-snapshot')
-      #   run: node src/index.js schema.json --update-snapshot
