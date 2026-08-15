@@ -10,7 +10,7 @@ const program = new Command();
 program
   .name('schema-regression')
   .description('Detect breaking changes in JSON/YAML schemas')
-  .version('1.0.0')
+  .version('1.0.1')
   .argument('[schemaPath]', 'Path to the current schema file (JSON or YAML)', 'schema.json')
   .option('-s, --snapshot-name <name>', 'Name of the snapshot to compare against', 'schema')
   .option('-d, --snapshots-dir <dir>', 'Directory where snapshots are stored', 'snapshots')
