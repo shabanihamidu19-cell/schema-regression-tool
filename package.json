@@ -1,11 +1,16 @@
 {
   "name": "schema-regression-tool",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Detect breaking changes in JSON/YAML schemas. Protects APIs and data contracts from silent regressions.",
   "main": "src/index.js",
   "bin": {
     "schema-regression": "./src/index.js"
   },
+  "files": [
+    "src/",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
     "test": "jest --verbose",
     "test:watch": "jest --watch",
@@ -20,10 +25,26 @@
     "json-schema",
     "yaml",
     "ci",
-    "jest"
+    "jest",
+    "contract-testing",
+    "snapshot"
   ],
-  "author": "Schema Regression Team",
+  "author": {
+    "name": "KidCoder Tz",
+    "url": "https://github.com/shabanihamidu19-cell"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shabanihamidu19-cell/schema-regression-tool.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shabanihamidu19-cell/schema-regression-tool/issues"
+  },
+  "homepage": "https://github.com/shabanihamidu19-cell/schema-regression-tool#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "js-yaml": "^4.1.0",
     "deep-diff": "^1.0.2",
